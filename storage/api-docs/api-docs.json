@@ -1,0 +1,65 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Doc API",
+        "description": "Описание API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "GET products",
+                "operationId": "1bfaa78d1c2c3848ab8165c5dadcad3e",
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Some title"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Some title"
+                                                    },
+                                                    "price": {
+                                                        "type": "decimal",
+                                                        "example": 10.2
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 10
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Ресурс не найден"
+                    }
+                }
+            }
+        }
+    }
+}

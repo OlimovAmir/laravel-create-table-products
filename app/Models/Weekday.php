@@ -10,23 +10,50 @@ class Weekday extends Model
     use HasFactory;
     protected $table = 'weekdays';
 
-       protected $fillable = [
-           'пн',
-           'вт',
-           'ср',
-           'чт',
-           'пт',
-           'сб',
-           'вс',
-       ];
+    protected $fillable = [
+        'id',
+        'пн',
+        'вт',
+        'ср',
+        'чт',
+        'пт',
+        'сб',
+        'вс',
+    ];
 
-       protected $casts = [
-           'пн' => 'boolean',
-           'вт' => 'boolean',
-           'ср' => 'boolean',
-           'чт' => 'boolean',
-           'пт' => 'boolean',
-           'сб' => 'boolean',
-           'вс' => 'boolean',
-       ];
+    protected $casts = [
+        'пн' => 'boolean',
+        'вт' => 'boolean',
+        'ср' => 'boolean',
+        'чт' => 'boolean',
+        'пт' => 'boolean',
+        'сб' => 'boolean',
+        'вс' => 'boolean',
+    ];
+
+    public function getDayAttribute()
+    {
+        $days = [
+            'пн' => 'Понедельник',
+            'вт' => 'Вторник',
+            'ср' => 'Среда',
+            'чт' => 'Четверг',
+            'пт' => 'Пятница',
+            'сб' => 'Суббота',
+            'вс' => 'Воскресенье',
+        ];
+
+        foreach ($this->attributes as $key => $value) {
+            if ($key !== 'id' && $value) {
+                return $days[$key];
+            }
+        }
+
+        return null;
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->day;
+    }
 }

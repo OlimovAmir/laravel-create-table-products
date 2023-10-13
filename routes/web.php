@@ -32,5 +32,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('weekdays', [WeekDayController::class, 'pageWeekday']);
+Route::get('selects', [WeekDayController::class, 'selects']);
+Route::get('/options', [WeekDayController::class, 'options']);
 //Route::get('/weekdays/create', [WeekdayController::class, 'create'])->name('weekdays.create');
-Route::post('/weekdays', [WeekdayController::class, 'store'])->name('weekdays.store');
+Route::post('weekdays.data', [WeekdayController::class, 'store'])->name('weekdays.store');
+
+Route::get('weekdaysAlarm', [WeekdayController::class, 'day']);
+Route::get('weekdaysAlarm', [WeekdayController::class, 'index']);

@@ -38,6 +38,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="weekdays">Weekdays</a></li>
+                                    <li><a class="dropdown-item" href="selects">Select</a></li>
                                     <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -148,6 +149,7 @@
 
 
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

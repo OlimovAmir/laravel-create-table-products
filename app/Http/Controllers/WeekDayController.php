@@ -11,13 +11,28 @@ class WeekDayController extends Controller
         return view('pages.weekdays');
     }
 
+    public function selects(){
+        return view('pages.selects');
+    }
+
+    public function day(){
+        return view('pages.alarmClock');
+    }
+
+    public function options()
+    {
+        $options = Weekday::all();
+        return response()->json($options);
+    }
+
     
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $weekdays = Weekday::all();
+        return view('pages.alarmClock', compact('weekdays'));
     }
 
     /**
@@ -45,7 +60,7 @@ class WeekDayController extends Controller
 
         Weekday::create($data);
 
-        return redirect()->route('weekdays.create')->with('success', 'Данные успешно сохранены.');
+        return 'Данные успешно сохранены';
     
     }
 

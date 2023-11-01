@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Employee\EmployeeResource;
 use App\Http\Resources\Product\ProductResource;
+use App\Models\Employee;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -47,7 +49,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return ProductResource::collection($products);
+        $employees = Employee::select('name')->whereNotNull('name')->get();
+        $result = [
+            'products' => ProductResource::collection($products),
+            'employee_names' => $employees->pluck('name'),
+        ];
+    
+        return $result;
     }
 
     /**

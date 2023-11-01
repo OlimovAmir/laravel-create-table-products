@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Employee extends Model
 {
     use HasFactory;
     protected $quarded = false;
 
-    public function category()
-    {
-        return $this->belongsTo(Categories::class);
-    }
+    protected $table = 'employees';
+
+    protected $fillable = [
+        'id',
+        'name',
+        'surname',
+        'position',
+    ];
 }
